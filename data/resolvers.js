@@ -30,7 +30,16 @@ const resolvers = {
                 else resolve(newBook)
             })
         })
-    }
+    },
+
+    updateProduct: ({input}) => {
+        return new Promise((resolve) => {
+            Books.findOneAndUpdate({ _id: input.id}, input, {new: true}, (err, book) => {
+                if(err) reject(err)
+                else resolve(book)
+            } )
+        })
+    },
 }
 
 export default resolvers;
