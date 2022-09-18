@@ -12,6 +12,10 @@ const resolvers = {
         });
     },
 
+    getAllProducts: () => {
+        return Books.find({})
+    },
+
     createProduct: ({input}) => {
         const newBook = new Books({
             name: input.name,
@@ -49,6 +53,8 @@ const resolvers = {
             })
         })
     }
+
+    
 }
 
 export default resolvers;
