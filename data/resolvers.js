@@ -40,6 +40,15 @@ const resolvers = {
             } )
         })
     },
+    
+    deleteProduct: ({id}) => {
+        return new Promise((resolve) => {
+            Books.remove({_id: id}, (err) => {
+                if(err) reject(err)
+                else resolve('Successfully deleted book')
+            })
+        })
+    }
 }
 
 export default resolvers;
